@@ -54,6 +54,32 @@ For the failed-action evidence, `approveRequest(0)` was tried in Remix while ite
 
 `constructor()` saves the deploying wallet as `custodian`. `addItem` checks the caller and name size. `requestItem` checks that the item exists and is Available. `approveRequest` is restricted to the custodian and moves a Requested item to Borrowed. `markReturned` is also restricted to the custodian, so a student cannot unilaterally claim to have returned physical equipment. `getItem` and `itemCount` are read-only calls; the frontend displays these values. Successful writes emit events and produce transaction hashes.
 
+## Screenshots
+
+These are captures from the actual Remix, Ganache, MetaMask, and browser session.
+
+### Compilation and deployment
+
+![CampusKitLedger compiled in Remix](evidence/01-compile.png)
+
+![CampusKitLedger deployed to Ganache](evidence/02-deploy.png)
+
+### MetaMask and successful transaction
+
+![Imported Ganache account confirming a contract transaction](evidence/03-metamask-ganache.png)
+
+![Camera item displayed by the frontend with confirmed transaction hash](evidence/04-ui-success.png)
+
+### Failed approval attempt and tests
+
+Item #0 was Available, so `approveRequest(0)` could not succeed. Remix first reported a failed gas estimate and then reported an error after the transaction was sent.
+
+![Remix gas-estimation warning for the invalid approval](evidence/05-failed-estimate.png)
+
+![Remix error from the attempted approval transaction](evidence/06-failed-transaction.png)
+
+![Seven passing Remix unit tests covering valid, invalid, and unauthorized cases](evidence/07-unit-tests.png)
+
 ## Submission checklist
 
 - [x] Compile in Remix and save real compilation screenshot.
@@ -62,8 +88,8 @@ For the failed-action evidence, `approveRequest(0)` was tried in Remix while ite
 - [x] Connect MetaMask on Ganache; add `camera` and capture the confirmed transaction and blockchain item in the UI.
 - [x] Capture a failed approval attempt and the Remix error, with screenshots.
 - [x] Push the project and actual evidence to this GitHub repository.
-- [ ] If repository is private, grant evaluator access.
-- [ ] Add repository URL to the submission Word document and export to PDF.
+- [x] Repository is public, so the evaluator can access it.
+- [x] Add the repository URL to the submission Word document and export to PDF.
 - [ ] Upload the final PDF to LMS before the deadline.
 
 Never commit private keys, seed phrases, passwords, account exports, or `.env` files.
