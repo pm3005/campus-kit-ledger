@@ -7,7 +7,7 @@ Fill this file from the real Remix, Ganache/testnet, MetaMask, and UI session. D
 | Network name | Ganache local (`http://127.0.0.1:7545` via Remix External HTTP Provider) |
 | Chain ID | 1337 (shown in Remix during deployment) |
 | Compiler version | Pending compilation |
-| Custodian address | Pending deployment |
+| Custodian address | `0xfF527aD658052EE4816f41633F9871957e34B28F` |
 | Contract address | `0x15E3e4d371BBbf45A95Cc7833C2fB1b01a585C19` |
 | Deployment transaction hash | Pending deployment |
 | Successful request transaction hash | Pending transaction |
