@@ -48,7 +48,7 @@ In Remix, copy both files in `tests/` to the same paths, enable the **Solidity U
 | Unauthorized approval | Student calls `approveRequest` | Revert: `Only custodian` | Passed in Remix |
 | Unauthorized return | Student calls `markReturned` | Revert: `Only custodian` | Passed in Remix |
 
-For a **failed MetaMask transaction screenshot**, Remix's form can be used to send an unauthorized action from the second wallet. Wallets may show a preflight warning and decline to broadcast it; capture the actual error displayed, and do not label an unbroadcast simulation as an on-chain failed transaction.
+For the failed-action evidence, `approveRequest(0)` was tried in Remix while item #0 was Available. Remix first showed a gas-estimation warning and then an error after **Send Transaction**; the actual screens are saved under `evidence/05-failed-estimate.png` and `06-failed-transaction.png`. Remix did not display the complete revert reason in the captured error. The unit test verifies the `No pending request` validation.
 
 ## Contract walkthrough
 
@@ -60,7 +60,7 @@ For a **failed MetaMask transaction screenshot**, Remix's form can be used to se
 - [x] Deploy via Ganache at `0x15E3e4d371BBbf45A95Cc7833C2fB1b01a585C19`; deployment transaction hash was not captured.
 - [x] Run seven Remix unit tests; save the actual 7 passed, 0 failed screenshot.
 - [x] Connect MetaMask on Ganache; add `camera` and capture the confirmed transaction and blockchain item in the UI.
-- [ ] Capture a live failed-action screenshot.
+- [x] Capture a failed approval attempt and the Remix error, with screenshots.
 - [x] Push the project and actual evidence to this GitHub repository.
 - [ ] If repository is private, grant evaluator access.
 - [ ] Add repository URL to the submission Word document and export to PDF.
