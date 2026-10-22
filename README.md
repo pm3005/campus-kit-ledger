@@ -20,8 +20,8 @@ Only one pending request per item is supported. A borrower is a wallet address, 
 | `frontend/index.html`, `style.css`, `app.js` | Simple interface and MetaMask integration using Ethers.js |
 | `tests/CampusKitLedger_test.sol` | Solidity unit tests for the Remix Unit Testing plugin |
 | `tests/StudentWallet.sol` | Separate caller used by the authorization tests |
-| `deployment.md` | Network, address, test observations and transaction log to complete after deployment |
-| `evidence/` | Put actual screenshots here; do not submit invented screenshots |
+| `deployment.md` | Network, address, test observations and real transaction log |
+| `evidence/` | Actual compilation, deployment, wallet, transaction and unit-test screenshots |
 
 ## Compile and deploy with Remix and Ganache
 
@@ -29,7 +29,7 @@ Only one pending request per item is supported. A borrower is a wallet address, 
 2. In MetaMask, add the Ganache custom network using that RPC URL and chain ID, then import **one disposable Ganache account** into MetaMask. This account will be the custodian. Add a second disposable account for the student test.
 3. Open [Remix IDE](https://remix.ethereum.org/). Make a workspace and copy the files in `contracts/` and `tests/` into the same paths. Choose Solidity compiler **0.8.20 or a compatible 0.8.x version**. In **Advanced Configurations**, set **EVM Version to London** for the archived Ganache UI, then compile `CampusKitLedger.sol`. A compiler default of Shanghai or later emits `PUSH0`, which this Ganache UI may not support. Save a screenshot of the successful compilation.
 4. In Remix's **Deploy & Run Transactions** tab, select **Custom - External HTTP Provider** and enter the RPC URL shown in Ganache (usually `http://127.0.0.1:7545`). Choose the first Ganache account, also imported in MetaMask as the custodian. Select `CampusKitLedger`, turn off explorer verification for this local chain, and press **Deploy**. Copy the **deployed address**, **chain ID**, and deployment transaction hash into `deployment.md`. Save a deployment screenshot. This direct Ganache connection does not prompt MetaMask to sign the deployment; MetaMask signs the frontend interactions later.
-5. For the frontend, open a terminal in `frontend/` and run `python -m http.server 8000`. Visit `http://localhost:8000` in a browser with MetaMask. Click **Connect MetaMask**, paste the deployed address, and click **Load contract**. The frontend gets the state through Ethers.js and asks MetaMask to sign writes. A simple local HTTP server is needed because `app.js` is an ES module.
+5. For the frontend, open a terminal in `frontend/` and run `python -m http.server 8000`. Visit `http://localhost:8000` in a browser with MetaMask. Click **Connect MetaMask**, then **Switch to Ganache (chain 1337)** and approve if another network is active. Paste the deployed address and click **Load contract**. The frontend gets the state through Ethers.js and asks MetaMask to sign writes. A simple local HTTP server is needed because `app.js` is an ES module.
 6. With the custodian account, add `Camera tripod`. Switch MetaMask to the student account and request item `#0`. Switch back to custodian, approve the request, then confirm a physical return. Refresh the interface between steps if needed. Record actual transaction hashes and screenshots in `deployment.md` and `evidence/`.
 
 **Alternative:** Use an Ethereum test network in place of Ganache. Use test ETH only. Remix's in-browser VM is useful for quick checks but does **not** satisfy the assignment's Ganache-or-test-network deployment requirement.
@@ -57,10 +57,11 @@ For a **failed MetaMask transaction screenshot**, Remix's form can be used to se
 ## Submission checklist
 
 - [x] Compile in Remix and save real compilation screenshot.
-- [ ] Deploy via Ganache or Ethereum test network and fill in `deployment.md`.
+- [x] Deploy via Ganache at `0x15E3e4d371BBbf45A95Cc7833C2fB1b01a585C19`; deployment transaction hash was not captured.
 - [x] Run seven Remix unit tests; save the actual 7 passed, 0 failed screenshot.
-- [ ] Connect MetaMask; record one successful and one failed action and UI state screenshots.
-- [ ] Push this folder to a GitHub repository, for example `campus-kit-ledger`, with evidence.
+- [x] Connect MetaMask on Ganache; add `camera` and capture the confirmed transaction and blockchain item in the UI.
+- [ ] Capture a live failed-action screenshot.
+- [x] Push the project and actual evidence to this GitHub repository.
 - [ ] If repository is private, grant evaluator access.
 - [ ] Add repository URL to the submission Word document and export to PDF.
 - [ ] Upload the final PDF to LMS before the deadline.
