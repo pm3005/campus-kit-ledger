@@ -32,8 +32,27 @@ async function connect() {
   account = await signer.getAddress();
   const network = await provider.getNetwork();
   $("wallet").textContent = `${short(account)} connected on chain ${network.chainId}`;
-  status("Wallet connected. Load your deployed contract.");
+  status(network.chainId === 1337n ? "Wallet connected to Ganache. Load your deployed contract." : "Wrong network. Click Switch to Ganache (chain 1337).");
   if (contract) await loadContract();
+}
+
+async function switchToGanache() {
+  if (!window.ethereum) throw new Error("Install or enable MetaMask first.");
+  try {
+    await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x539" }] });
+  } catch (error) {
+    if (error.code !== 4902) throw error;
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [{
+        chainId: "0x539",
+        chainName: "Ganache Local",
+        rpcUrls: ["http://127.0.0.1:7545"],
+        nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 }
+      }]
+    });
+  }
+  status("Ganache selected. Click Connect MetaMask, then Load contract.");
 }
 
 async function loadContract() {
@@ -104,6 +123,9 @@ async function runTransaction(send) {
 
 $("connect").addEventListener("click", async () => {
   try { await connect(); } catch (error) { status(error.shortMessage || error.message, true); }
+});
+$("switch-network").addEventListener("click", async () => {
+  try { await switchToGanache(); } catch (error) { status(error.shortMessage || error.message, true); }
 });
 $("load").addEventListener("click", async () => {
   try { await loadContract(); } catch (error) { status(error.shortMessage || error.message, true); }
