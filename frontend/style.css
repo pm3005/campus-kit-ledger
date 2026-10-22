@@ -1,0 +1,31 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, sans-serif; color: #eaf0ff; background: #0c1426; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+header { padding: 15px 0 24px; }
+.eyebrow { color: #7ce0bd; letter-spacing: .19em; font-size: .75rem; font-weight: 800; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); max-width: 700px; line-height: 1.12; margin: 14px 0; }
+header p { color: #aebbd4; max-width: 650px; line-height: 1.6; }
+h2 { margin: 0; font-size: 1.15rem; }
+.panel { background: #15223a; border: 1px solid #2b3d5c; border-radius: 16px; padding: 22px; margin: 15px 0; }
+.row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.row input { flex: 1 1 260px; }
+label { display: block; font-size: .9rem; font-weight: 600; margin: 21px 0 8px; }
+input { min-width: 0; color: #eaf0ff; background: #0d192e; border: 1px solid #405473; padding: 11px 13px; border-radius: 9px; font: inherit; }
+button { background: #7ce0bd; color: #09241d; border: 0; border-radius: 9px; padding: 11px 16px; font: inherit; font-weight: 750; cursor: pointer; }
+button:hover { filter: brightness(1.08); }
+button:disabled { opacity: .55; cursor: progress; }
+button.secondary { background: #263b59; color: #eaf0ff; }
+.muted, .hint, footer { color: #aebbd4; line-height: 1.5; }
+.hint { font-size: .85rem; margin-bottom: 0; }
+.cards { display: grid; gap: 12px; margin-top: 18px; }
+.card { border: 1px solid #344a67; padding: 17px; border-radius: 12px; background: #0f1b31; }
+.card-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+.card h3 { margin: 0; font-size: 1.08rem; }
+.card p { color: #adbbd4; margin: 10px 0 14px; overflow-wrap: anywhere; font-size: .88rem; }
+.badge { background: #284564; padding: 5px 10px; border-radius: 100px; font-size: .75rem; font-weight: 800; }
+.notice { padding: 14px 17px; border-radius: 9px; background: #1e3650; overflow-wrap: anywhere; }
+.notice.error { background: #532d38; }
+.hidden { display: none; }
+footer { margin-top: 23px; font-size: .8rem; }
+@media (max-width: 500px) { .row button { width: 100%; } .card button { width: 100%; } }

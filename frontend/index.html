@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Kit Ledger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">CAMPUS KIT LEDGER</div>
+      <h1>Borrow equipment with a clear record.</h1>
+      <p>Students request lab equipment. The custodian approves checkouts and records returns on Ethereum.</p>
+    </header>
+
+    <section class="panel" aria-label="Wallet connection">
+      <div class="row"><strong>1. Connect your wallet</strong><button id="connect">Connect MetaMask</button></div>
+      <p id="wallet" class="muted">No wallet connected.</p>
+      <label for="address">Deployed contract address</label>
+      <div class="row"><input id="address" placeholder="0x..." spellcheck="false"><button id="load">Load contract</button></div>
+      <p class="hint">Deploy the contract in Remix first, then paste its address here. Use the same network in MetaMask.</p>
+    </section>
+
+    <section class="panel" aria-label="Equipment">
+      <div class="row"><h2>2. Equipment</h2><button id="refresh" class="secondary">Refresh</button></div>
+      <p class="muted" id="role">Load a contract to see its items.</p>
+      <div id="items" class="cards"></div>
+    </section>
+
+    <section id="admin" class="panel hidden" aria-label="Custodian actions">
+      <h2>Custodian: add equipment</h2>
+      <form id="add-form" class="row">
+        <input id="item-name" aria-label="Equipment name" placeholder="e.g. Camera tripod" maxlength="64" required>
+        <button type="submit">Add item</button>
+      </form>
+    </section>
+
+    <p id="message" role="status" aria-live="polite" class="notice">Ready.</p>
+    <footer>Every write asks for a MetaMask confirmation and uses test ETH for gas. No personal names are stored on-chain.</footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
