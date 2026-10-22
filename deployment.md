@@ -4,11 +4,11 @@ Fill this file from the real Remix, Ganache/testnet, MetaMask, and UI session. D
 
 | Field | Value |
 | --- | --- |
-| Network name | Pending deployment |
-| Chain ID | Pending deployment |
+| Network name | Ganache local (`http://127.0.0.1:7545` via Remix External HTTP Provider) |
+| Chain ID | 1337 (shown in Remix during deployment) |
 | Compiler version | Pending compilation |
 | Custodian address | Pending deployment |
-| Contract address | Pending deployment |
+| Contract address | `0x15E3e4d371BBbf45A95Cc7833C2fB1b01a585C19` |
 | Deployment transaction hash | Pending deployment |
 | Successful request transaction hash | Pending transaction |
 | Successful approval transaction hash | Pending transaction |
