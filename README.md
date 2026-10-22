@@ -19,6 +19,7 @@ Only one pending request per item is supported. A borrower is a wallet address, 
 | `contracts/CampusKitLedger.sol` | Solidity smart contract, state transitions, events and validation |
 | `frontend/index.html`, `style.css`, `app.js` | Simple interface and MetaMask integration using Ethers.js |
 | `tests/CampusKitLedger_test.sol` | Solidity unit tests for the Remix Unit Testing plugin |
+| `tests/StudentWallet.sol` | Separate caller used by the authorization tests |
 | `deployment.md` | Network, address, test observations and transaction log to complete after deployment |
 | `evidence/` | Put actual screenshots here; do not submit invented screenshots |
 
@@ -35,7 +36,7 @@ Only one pending request per item is supported. A borrower is a wallet address, 
 
 ## Run the unit tests
 
-In Remix, enable the **Solidity Unit Testing** plugin, select `tests/CampusKitLedger_test.sol`, and run its tests. The file deploys a fresh contract before each test. `StudentWallet` makes calls from a separate address to check authorization. Save the displayed test results. The tests should be **run and their actual outcome recorded** in `deployment.md` before submission.
+In Remix, copy both files in `tests/` to the same paths, enable the **Solidity Unit Testing** plugin, select `tests/CampusKitLedger_test.sol`, and run its tests. The file deploys a fresh contract before each test. `StudentWallet` makes calls from a separate address to check authorization. Save the displayed test results. The tests should be **run and their actual outcome recorded** in `deployment.md` before submission.
 
 | Test | Input / caller | Expected result | Observed result |
 | --- | --- | --- | --- |

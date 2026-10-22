@@ -4,24 +4,7 @@ pragma solidity ^0.8.20;
 // Run this file in Remix's Solidity Unit Testing plugin.
 import "remix_tests.sol";
 import "../contracts/CampusKitLedger.sol";
-
-contract StudentWallet {
-    function request(CampusKitLedger ledger, uint256 id) external {
-        ledger.requestItem(id);
-    }
-
-    function add(CampusKitLedger ledger, string calldata name) external {
-        ledger.addItem(name);
-    }
-
-    function approve(CampusKitLedger ledger, uint256 id) external {
-        ledger.approveRequest(id);
-    }
-
-    function markReturned(CampusKitLedger ledger, uint256 id) external {
-        ledger.markReturned(id);
-    }
-}
+import "./StudentWallet.sol";
 
 contract CampusKitLedgerTest {
     CampusKitLedger private ledger;
