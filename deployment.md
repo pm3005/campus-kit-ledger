@@ -14,7 +14,7 @@ Fill this file from the real Remix, Ganache/testnet, MetaMask, and UI session. D
 | Successful approval transaction hash | Pending transaction |
 | Successful return transaction hash | Pending transaction |
 | Failed/unauthorized input and actual error | Pending test |
-| Remix unit test result and date | Pending test |
+| Remix unit test result and date | 7 passed, 0 failed; observed in Remix on 2026-10-22 (`evidence/07-unit-tests.png`) |
 
 ## Screenshot filenames
 

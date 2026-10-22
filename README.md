@@ -40,13 +40,13 @@ In Remix, copy both files in `tests/` to the same paths, enable the **Solidity U
 
 | Test | Input / caller | Expected result | Observed result |
 | --- | --- | --- | --- |
-| Valid flow | Student requests #0, custodian approves and marks returned | States Requested, Borrowed, Available | Pending Remix run |
-| Invalid name | Custodian adds `""` | Revert: `Name must be 1-64 bytes` | Pending Remix run |
-| Invalid repeat | Request item already Requested | Revert: `Item is not available` | Pending Remix run |
-| Invalid ID | Request item #99 | Revert: `Item does not exist` | Pending Remix run |
-| Unauthorized add | Student calls `addItem` | Revert: `Only custodian` | Pending Remix run |
-| Unauthorized approval | Student calls `approveRequest` | Revert: `Only custodian` | Pending Remix run |
-| Unauthorized return | Student calls `markReturned` | Revert: `Only custodian` | Pending Remix run |
+| Valid flow | Student requests #0, custodian approves and marks returned | States Requested, Borrowed, Available | Passed in Remix |
+| Invalid name | Custodian adds `""` | Revert: `Name must be 1-64 bytes` | Passed in Remix |
+| Invalid repeat | Request item already Requested | Revert: `Item is not available` | Passed in Remix |
+| Invalid ID | Request item #99 | Revert: `Item does not exist` | Passed in Remix |
+| Unauthorized add | Student calls `addItem` | Revert: `Only custodian` | Passed in Remix |
+| Unauthorized approval | Student calls `approveRequest` | Revert: `Only custodian` | Passed in Remix |
+| Unauthorized return | Student calls `markReturned` | Revert: `Only custodian` | Passed in Remix |
 
 For a **failed MetaMask transaction screenshot**, Remix's form can be used to send an unauthorized action from the second wallet. Wallets may show a preflight warning and decline to broadcast it; capture the actual error displayed, and do not label an unbroadcast simulation as an on-chain failed transaction.
 
@@ -56,9 +56,9 @@ For a **failed MetaMask transaction screenshot**, Remix's form can be used to se
 
 ## Submission checklist
 
-- [ ] Compile in Remix and save real compilation screenshot.
+- [x] Compile in Remix and save real compilation screenshot.
 - [ ] Deploy via Ganache or Ethereum test network and fill in `deployment.md`.
-- [ ] Run tests; replace **Pending Remix run** with observed outcomes.
+- [x] Run seven Remix unit tests; save the actual 7 passed, 0 failed screenshot.
 - [ ] Connect MetaMask; record one successful and one failed action and UI state screenshots.
 - [ ] Push this folder to a GitHub repository, for example `campus-kit-ledger`, with evidence.
 - [ ] If repository is private, grant evaluator access.
